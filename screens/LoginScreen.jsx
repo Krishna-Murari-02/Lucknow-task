@@ -117,10 +117,10 @@ const LoginScreen = ({ navigation }) => {
         </View>
       </View>
       <Button
-        title={accessToken ? "Get User Data" : "Login"}
+        title={accessToken ? "Get User Data" : "Login With Google"}
         onPress={accessToken ? getUserData : signInWithGoogleAsync}
       />
-      <Button title={"Login Facebbook"} onPress={logIn} />
+      <Button title={"Login With Facebbook"} onPress={logIn} />
       <View>
         <Text style={tw`text-white`}>By continuing, you agree to our</Text>
         <Text style={tw``}>Terms os service & Privacy Policy</Text>

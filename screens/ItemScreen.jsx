@@ -24,7 +24,8 @@ const ItemScreen = ({ navigation, route }) => {
       }
 
       let location = await Location.getCurrentPositionAsync({});
-      setLocation(location);
+      let address = await Location.reverseGeocodeAsync(location.coords);
+      setLocation(address[0].subregion);
     })();
   }, []);
 
@@ -63,18 +64,16 @@ const ItemScreen = ({ navigation, route }) => {
             size={24}
             color="white"
           />
-          <View style={tw`items-center  flex-row`}>
+          <View style={tw`  flex-row`}>
             <View style={tw`justify-center items-center`}>
-              <TextInput style={tw`text-white font-medium text-xl mr-1`}>
-                UP, Azamgarh
-              </TextInput>
+              <Text style={tw`text-white  text-base mr-1`}>{text}</Text>
               <Text style={tw`text-gray-200 text-xs`}>{mono}</Text>
             </View>
 
             <AntDesign
-              style={tw`text-gray-200`}
+              style={tw`text-gray-200 mt-1`}
               name="down"
-              size={18}
+              size={15}
               color="white"
             />
           </View>
